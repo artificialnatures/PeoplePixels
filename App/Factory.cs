@@ -1,3 +1,5 @@
+using PeoplePixels.Interfaces;
+
 namespace PeoplePixels.App
 {
     public static class Factory

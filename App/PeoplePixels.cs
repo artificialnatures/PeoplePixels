@@ -1,3 +1,5 @@
+using PeoplePixels.Interfaces;
+
 namespace PeoplePixels.App
 {
     internal class PeoplePixels : Application

@@ -1,4 +1,4 @@
-namespace PeoplePixels.App
+namespace PeoplePixels.Interfaces
 {
     public interface Application
     {
