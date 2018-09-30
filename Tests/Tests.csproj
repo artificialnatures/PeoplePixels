@@ -14,6 +14,12 @@
 
   <ItemGroup>
     <ProjectReference Include="../App/App.csproj" />
+    <ProjectReference Include="..\Files\Files.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ApplicationTests.cs" />
+    <Compile Remove="FileOpenerTests.cs" />
   </ItemGroup>
 
 </Project>
