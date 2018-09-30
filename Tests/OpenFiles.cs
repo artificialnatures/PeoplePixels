@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Xunit;
+using PeoplePixels.Files;
 
 namespace PeoplePixels.Tests
 {
@@ -9,9 +10,9 @@ namespace PeoplePixels.Tests
         [Fact]
         public void CanOpenFileFromSpecifiedLocalFilepath()
         {
-            var fileOpener = Files.Factory.CreateFileOpener();
+            var fileOpener = Factory.CreateFileOpener(FileSource.Local);
             //the working directory will be ./bin/config/platform, so use a relative path
-            var filepath = Path.Combine(Environment.CurrentDirectory, "..", "..", "..", "..", "Assets", "Images", "hendrix.jpg");
+            var filepath = Path.Combine(Environment.CurrentDirectory, "..", "..", "..", "..", "Files", "Images", "hendrix.jpg");
 
             var stream = fileOpener.Open(filepath);
             
@@ -24,7 +25,7 @@ namespace PeoplePixels.Tests
         [Fact]
         public void BadFilepathResultsInEmptyStream()
         {
-            var fileOpener = Files.Factory.CreateFileOpener();
+            var fileOpener = Factory.CreateFileOpener(FileSource.Local);
 
             var stream = fileOpener.Open("badfile.jpg");
             
@@ -34,7 +35,7 @@ namespace PeoplePixels.Tests
         [Fact]
         public void CanOpenEmbeddedResource()
         {
-            var fileOpener = Assets.Factory.CreateFileOpener();
+            var fileOpener = Factory.CreateFileOpener(FileSource.Embedded);
 
             var stream = fileOpener.Open("hendrix.jpg");
             
@@ -47,7 +48,7 @@ namespace PeoplePixels.Tests
         [Fact]
         public void BadEmbeddedResourceResultsInEmptyStream()
         {
-            var fileOpener = Assets.Factory.CreateFileOpener();
+            var fileOpener = Factory.CreateFileOpener(FileSource.Embedded);
 
             var stream = fileOpener.Open("badfile.jpg");
             

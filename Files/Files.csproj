@@ -11,5 +11,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Images\**" />
+  </ItemGroup>
 
 </Project>

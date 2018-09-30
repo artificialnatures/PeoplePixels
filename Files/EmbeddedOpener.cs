@@ -4,7 +4,7 @@ using System.Reflection;
 using Optional;
 using PeoplePixels.Interfaces;
 
-namespace PeoplePixels.Assets
+namespace PeoplePixels.Files
 {
     internal class EmbeddedOpener : FileOpener
     {

@@ -4,9 +4,16 @@ namespace PeoplePixels.Files
 {
     public static class Factory
     {
-        public static FileOpener CreateFileOpener()
+        public static FileOpener CreateFileOpener(FileSource fileSource)
         {
-            return new LocalOpener();
+            switch (fileSource)
+            {
+                case FileSource.Local:
+                    return new LocalOpener();
+                case FileSource.Embedded:
+                    return new EmbeddedOpener();
+            }
+            return null;
         }
     }
 }
