@@ -1,12 +1,12 @@
 using PeoplePixels.Interfaces;
 
-namespace PeoplePixels.Files
+namespace PeoplePixels.Assets
 {
     public static class Factory
     {
         public static FileOpener CreateFileOpener()
         {
-            return new LocalOpener();
+            return new EmbeddedOpener();
         }
     }
 }

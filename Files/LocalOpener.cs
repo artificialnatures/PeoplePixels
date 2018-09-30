@@ -1,33 +1,23 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Optional;
+using PeoplePixels.Interfaces;
 
 namespace PeoplePixels.Files
 {
     internal class LocalOpener : FileOpener
     {
-        public string DefaultFilepath { get; set; }
-        
-        public Option<Stream> Open(string location)
+        public Option<Stream> Open(string filename)
         {
-            if (File.Exists(location))
-            {
-                return Option.Some<Stream>(File.Open(location, FileMode.Open, FileAccess.Read));
-            }
-            else
-            {
-                var fileAtDefaultFilepath = Path.Combine(DefaultFilepath, location);
-                if (File.Exists(fileAtDefaultFilepath))
-                {
-                    return Option.Some<Stream>(File.Open(fileAtDefaultFilepath, FileMode.Open, FileAccess.Read));
-                }
-            }
-            return Option.None<Stream>();
+            return OpenStream(filename).SomeNotNull();
         }
 
-        public LocalOpener()
+        private Stream OpenStream(string filename)
         {
-            DefaultFilepath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (File.Exists(filename))
+            {
+                return File.Open(filename, FileMode.Open, FileAccess.Read);
+            }
+            return null;
         }
     }
 }
