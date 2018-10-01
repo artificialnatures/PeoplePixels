@@ -13,8 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
     <ProjectReference Include="..\App\App.csproj" />
     <ProjectReference Include="..\Files\Files.csproj" />
+    <ProjectReference Include="..\Images\Images.csproj" />
   </ItemGroup>
 
   <ItemGroup>
