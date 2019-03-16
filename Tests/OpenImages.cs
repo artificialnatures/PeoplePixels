@@ -13,8 +13,8 @@ namespace PeoplePixels.Tests
             var image = stream.FlatMap(s => Images.Factory.CreateImage(s));
             
             Assert.True(image.HasValue);
-            Assert.True(image.Exists(i => i.Width > 0));
-            Assert.True(image.Exists(i => i.Height > 0));
+            Assert.True(image.Exists(i => i.Width == 4160));
+            Assert.True(image.Exists(i => i.Height == 3120));
         }
     }
 }
